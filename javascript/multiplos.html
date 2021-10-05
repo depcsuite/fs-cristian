@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio</title>
+</head>
+<script>
+    function imprimirListado(aValores){
+       aValores.forEach(function (value, index) {
+                document.write(value + "<br>");
+        }); 
+    }
+
+    aNumeros = new Array(10, 14, 21, 42, 7, 35, 42, 100);
+
+    document.write("<br><strong>Función forEach:</strong><br>");
+    aNumeros.forEach(function (value, index) {
+        if (value % 7 == 0) {
+            document.write(value + "<br>");
+        }
+    });
+
+    document.write("<br><strong>Función filter:</strong><br>");
+    aMultiplos = aNumeros.filter(function (value) {
+        return (value % 7 == 0);
+    });
+    imprimirListado(aMultiplos);
+
+    document.write("<br><strong>Función map:</strong><br>");
+    aRaiz = aNumeros.map(function (value) {
+        return Math.sqrt(value);
+    });
+    imprimirListado(aRaiz);
+
+</script>
+
+<body></body>
+
+</body>
+
+</html>
