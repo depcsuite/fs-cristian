@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');     
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200&family=Birthstone&family=Maven+Pro&display=swap');
+.link-cust {
+    font-family: 'Maven Pro', sans-serif;
+    color:darkslategrey;
+    font-size: 18px;
+
+}
+a:hover {
+    color: black !important;
+    font-weight: bolder;
+
+}
+.text-cust {
+    font-family: 'Maven Pro', sans-serif;
+    color: rgba(32, 32, 32, 0.774);
+    font-size: 106px;  
+}
+h3 {
+    font-family: 'Maven Pro', sans-serif;
+
+}
+.desc-cust {
+    font-size: 24px;
+}
+.form-cust {
+    background-color: rgb(212, 212, 212);
+    border-bottom: black;
+    border-style:dashed;
+    border-width: thin;
+}
+.cont-cust {
+    background-color: white;
+    border-radius: 5px;
+}
+
+body {
+    background-color: rgb(212, 212, 212);
+}
+#portada{
+	margin: 0px;
+	padding: 0px;
+	background-image: url('../images/Fondos-01.png');
+	background-repeat: no-repeat;
+    background-size: cover;
+}
