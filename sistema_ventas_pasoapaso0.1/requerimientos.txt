@@ -1,0 +1,19 @@
+Tenemos que modelizar un sistema, que permita reflejar el funcionamiento de un comercio a nivel nacional.
+El comercio tiene cliente que viven en diferentes partes del país. De cada cliente hay que registar sus datos.
+Existen diferentes productos, que están agrupados en una variedad de "tipos". Esto signfica que es necesario
+que haya "categorías".
+Los cliente pueden hacer órdenes, y éstas se traducen en "ventas".
+
+-----------------------------------------------------------------------
+
+Lectura técnica. Entidades (clases).
+. cliente
+. productos
+. tipoproducto
+. ventas
+
+Clases:
+-Cliente
+-Producto
+-TipoProducto
+-Venta
