@@ -6,7 +6,7 @@ class Venta {
     private $fk_idproducto;
     private $fecha;
     private $cantidad;
-    private $preciounitario;
+    //private $preciounitario;
     private $total;
 
     public function __construct(){
@@ -46,14 +46,12 @@ class Venta {
                     fk_idproducto, 
                     fecha, 
                     cantidad,
-                    preciounitario,
                     total
                 ) VALUES (
                     $this->fk_idcliente, 
                     $this->fk_idproducto,
                     '$this->fecha', 
                     $this->cantidad,
-                    $this->preciounitario,
                     $this->total
                 );";
         //Ejecuta la query
@@ -70,12 +68,11 @@ class Venta {
 
         $mysqli = new mysqli(Config::BBDD_HOST, Config::BBDD_USUARIO, Config::BBDD_CLAVE, Config::BBDD_NOMBRE, Config::BBDD_PORT);
         $sql = "UPDATE venta SET
-                    fk_idcliente = $this->fk_idcliente,
-                    fk_idproducto = $this->fk_idproducto,
                     fecha = '$this->fecha',
                     cantidad = $this->cantidad,
-                    preciounitario = $this->preciounitario,
-                    total = $this->total
+                    total = $this->total,
+                    fk_idcliente = $this->fk_idcliente,
+                    fk_idproducto = $this->fk_idproducto
                 WHERE idventa = $this->idventa";
 
         if (!$mysqli->query($sql)) {
@@ -101,7 +98,6 @@ class Venta {
                         fk_idproducto, 
                         fecha, 
                         cantidad,
-                        preciounitario,
                         total
                 FROM venta 
                 WHERE idventa = " . $this->idventa;
@@ -116,7 +112,6 @@ class Venta {
             $this->fk_idproducto = $fila["fk_idproducto"];
             $this->fecha = $fila["fecha"];
             $this->cantidad = $fila["cantidad"];
-            $this->preciounitario = $fila["preciounitario"];
             $this->total = $fila["total"];
         }
         $mysqli->close();
@@ -125,14 +120,7 @@ class Venta {
     
     public function obtenerTodos(){
         $mysqli = new mysqli(Config::BBDD_HOST, Config::BBDD_USUARIO, Config::BBDD_CLAVE, Config::BBDD_NOMBRE, Config::BBDD_PORT);
-        $sql = "SELECT idventa, 
-                        fk_idcliente, 
-                        fk_idproducto, 
-                        fecha, 
-                        cantidad,
-                        preciounitario,
-                        total
-                FROM venta";
+        $sql = "SELECT * FROM venta";
         if (!$resultado = $mysqli->query($sql)) {
             printf("Error en query: %s\n", $mysqli->error . " " . $sql);
         }
@@ -147,7 +135,7 @@ class Venta {
                 $entidadAux->fk_idproducto = $fila["fk_idproducto"];
                 $entidadAux->fecha = $fila["fecha"];
                 $entidadAux->cantidad = $fila["cantidad"];
-                $entidadAux->preciounitario = $fila["preciounitario"];
+                //$entidadAux->preciounitario = $fila["preciounitario"];
                 $entidadAux->total = $fila["total"];
                 $aResultado[] = $entidadAux;
             }
@@ -167,11 +155,11 @@ class Venta {
                 B.nombre as nombre_cliente,
                 A.fk_idproducto,
                 A.total,
-                A.preciounitario,
+                C.precio,
                 C.nombre as nombre_producto
             FROM venta A
             INNER JOIN cliente B ON A.fk_idcliente = B.idcliente
-            INNER JOIN productos C ON A.fk_idproducto = C.idproducto
+            INNER JOIN producto C ON A.fk_idproducto = C.idproducto
             ORDER BY A.fecha DESC";
 
         if (!$resultado = $mysqli->query($sql)) {
@@ -188,7 +176,7 @@ class Venta {
                 $entidadAux->fk_idproducto = $fila["fk_idproducto"];
                 $entidadAux->fecha = $fila["fecha"];
                 $entidadAux->cantidad = $fila["cantidad"];
-                $entidadAux->preciounitario = $fila["preciounitario"];
+                //$entidadAux->preciounitario = $fila["preciounitario"];
                 $entidadAux->nombre_cliente = $fila["nombre_cliente"];
                 $entidadAux->nombre_producto = $fila["nombre_producto"];
                 $entidadAux->total = $fila["total"];
