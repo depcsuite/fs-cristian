@@ -130,7 +130,7 @@ class Producto {
         $aProducto = [];
         while($fila = $resultado->fetch_assoc()) {
             $producto = new Producto($fila["nombre"], $fila["fk_idtipoproducto"],
-             $fila["cantidad"], $fila["precio"], $fila["descripcion"]);
+            $fila["cantidad"], $fila["precio"], $fila["descripcion"]);
             $producto->idproducto = $fila["idproducto"];
             $aProducto[] = $producto; // Almaceno el producto recién creado en el array
             // "aProducto", con la idea de poder devolverlo después.
