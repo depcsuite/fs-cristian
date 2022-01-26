@@ -12,7 +12,12 @@ class GrupoSeeder extends Seeder
      * @return void
      */
     public function run()
+    
     {
+        \DB::table('grupos')->insert([
+            'nombre' => 'ABC',
+            'activo' => 1
+        ]);
         //
     }
 }

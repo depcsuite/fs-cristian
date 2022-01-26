@@ -13,6 +13,13 @@ class UsuarioGrupoSeeder extends Seeder
      */
     public function run()
     {
+        \DB::table('usuario_grupos')->insert([
+            'fk_usuario_id' => 1,
+            'fk_grupo_id' => 1,
+            'predeterminado' => 1
+
+
+        ]);
         //
     }
 }

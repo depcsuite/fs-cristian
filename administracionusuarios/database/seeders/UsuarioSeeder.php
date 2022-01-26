@@ -13,6 +13,20 @@ class UsuarioSeeder extends Seeder
      */
     public function run()
     {
+        \DB::table('usuarios')->insert([
+            'usuario'=>'usuario1',
+            'nombre' => 'Usuario',
+            'apellido' => 'Usuario',
+            'email' => 'user@pcsuite.com',
+            'clave' => bcrypt('laravel'),
+            'activo' => 1,
+            'root' => 1,
+            'fk_grupo_id' => 1
+
+
+
+
+        ]);
         //
     }
 }

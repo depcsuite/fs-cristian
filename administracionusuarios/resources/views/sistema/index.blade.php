@@ -7,7 +7,7 @@
 @section('titulo', "Bienvenido")
 @section('contenido')
 	<div class="text-center">
-			 un textoooo
+			 
 	</div>	
 @endsection
 
