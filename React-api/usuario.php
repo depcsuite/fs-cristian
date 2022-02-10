@@ -60,7 +60,7 @@ class Usuario {
         $mysqli = new mysqli(Config::BBDD_HOST, Config::BBDD_USUARIO, Config::BBDD_CLAVE, Config::BBDD_NOMBRE, Config::BBDD_PORT);
         //Arma la query
         $sql = "SELECT userName
-                FROM simple_users";
+                FROM simple_user";
         $resultado = $mysqli->query($sql);
 		$data = array();
         while($fila = $resultado->fetch_assoc()){ // $array["userName] y $aray["password"]	

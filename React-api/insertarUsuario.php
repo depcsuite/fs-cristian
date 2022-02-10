@@ -8,10 +8,10 @@
 	require_once("config.php");
 	$data = json_decode(file_get_contents('php://input')); // Se codifica en JSON la solicitud que llegó
 	$datos = array(
-				"p_userName" => $data->username, // Se leen los atributos "id" y "mensaje" del objeto JSON
+		"p_userName" => $data->username, // Se leen los atributos "id" y "mensaje" del objeto JSON
                 // que llega desde el front en React
-				"p_password" => password_hash($data->password, PASSWORD_DEFAULT)
-				);
+		"p_password" => password_hash($data->password, PASSWORD_DEFAULT)
+		);
 			
 	$userData = new Usuario();
 	$userData->usuario = $datos["p_userName"];	
